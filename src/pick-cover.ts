@@ -34,3 +34,20 @@ export function pickCoverMediaFromSummaries(
   const idx = stableIndexFromKey(stableKey, pool.length);
   return pool[idx] ?? null;
 }
+
+/**
+ * Preferred album / virtual-album cover: explicit profile media id when that row is in `summaries`,
+ * otherwise the same deterministic pick as {@link pickCoverMediaFromSummaries}.
+ */
+export function resolveAlbumCoverMedia(
+  preferredMediaId: string | null | undefined,
+  summaries: MediaSummary[],
+  stableKey: string,
+): MediaSummary | null {
+  const id = preferredMediaId?.trim();
+  if (id) {
+    const hit = summaries.find((m) => m.id === id);
+    if (hit) return hit;
+  }
+  return pickCoverMediaFromSummaries(summaries, stableKey);
+}

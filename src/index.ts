@@ -23,4 +23,4 @@ export {
 } from "./individual-names";
 export type { MediaBucketKind } from "./media-kind";
 export { inferMediaBucketKind } from "./media-kind";
-export { pickCoverMediaFromSummaries } from "./pick-cover";
+export { pickCoverMediaFromSummaries, resolveAlbumCoverMedia } from "./pick-cover";
