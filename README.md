@@ -2,6 +2,8 @@
 
 Shared types and small helpers for showing photo albums and other media sets from a genealogy tree.
 
+**Architecture:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
 A Ligneous site has two kinds of albums. **Curated** albums are rows that an editor builds by hand. **Generated** albums are virtual: "all media for this person", "media from this place", "media tagged Weddings". This package defines one view model that covers both, so the admin app and the public site render them the same way. It has no runtime dependencies and makes no database calls.
 
 ## What it does
