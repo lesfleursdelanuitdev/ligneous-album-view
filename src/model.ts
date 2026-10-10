@@ -29,6 +29,10 @@ export type AlbumMediaLinkedIndividual = {
   gedcomName: string;
   /** Readable display name */
   displayName: string;
+  /** When false, public viewers may see this person; when true, may be redacted for anonymous users. */
+  isLiving?: boolean;
+  /** Anonymous collapsed living count row — not a real person; render without link. */
+  isLivingSummary?: boolean;
   /** Album-level aggregate: media items in this set that include this person */
   mediaCount?: number;
   thumbnailUrl?: string | null;
@@ -80,6 +84,10 @@ export type MediaSummary = {
   linkedDates?: AlbumMediaLinkedDate[];
   /** App tags on this OBJE; filled by public album resolver for lightbox. */
   linkedTags?: AlbumMediaLinkedTag[];
+  /** Anonymous viewers must sign in before opening this item in an album grid/lightbox. */
+  privacyRestricted?: boolean;
+  /** Login wall target when `privacyRestricted` is true. */
+  loginHref?: string;
 };
 
 /** How rows are loaded for the grid (admin curated junction vs. inlined list). */
